@@ -11,8 +11,12 @@ Local verification on 2026-10-11 (Asia/Singapore), using Paseo 0.11.2 and Aside 
 | ACP disconnect/reconnect | 11/11 |
 | Simulated ACP approval | 5/5 |
 | Initial local Paseo integration | 14/14 |
+| Public GitHub installation, full Paseo integration | 14/14 |
+| GitHub Actions: typecheck, replay tests, package contents | Passed |
 
 The live checks use real browser navigation to example.com, public Wikipedia pages for cancellation, and simulated approvals. They cover model and thinking controls, conversation replay, native session continuity, approval denial, cancellation, explicit errors and hot reload while a turn is active.
+
+The public artifact was installed with `paseo plugin install git:JasprW/paseo-aside-provider`, using the manifest's production dependency preparation step. The plugin reached `running`; the Aside provider diagnostic reported 70 models and `Ready`. The complete live integration suite then passed again against that Git installation.
 
 The bridge dependency is pinned to aside-acp 0.2.0, commit `fa41bc9b20150e1938944b85190156a8d1fdc272`, downloaded over HTTPS with lockfile integrity verification.
 
