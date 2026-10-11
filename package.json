@@ -1,6 +1,6 @@
 {
   "name": "paseo-aside-provider",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Unofficial Aside browser agent integration for Paseo, with streaming and native session import.",
   "type": "module",
   "engines": {
@@ -24,7 +24,7 @@
     "THIRD_PARTY_NOTICES.md"
   ],
   "dependencies": {
-    "aside-acp": "https://codeload.github.com/JasprW/aside-acp/tar.gz/e7ff56e903379c6ea14f308b2f68d4e65ef25225",
+    "aside-acp": "https://codeload.github.com/JasprW/aside-acp/tar.gz/8516e1b282b4c09b6a3d90b9095a41485be07163",
     "zod": "^4.4.3"
   },
   "devDependencies": {
