@@ -65,7 +65,7 @@ The bridge reads `~/.aside-acp.json`. Omit it to use defaults, or use this minim
 {
   "account": 1,
   "default_effort": "medium",
-  "grant_full_access": true
+  "default_permission": "full-access"
 }
 ```
 
@@ -77,10 +77,21 @@ The bridge reads `~/.aside-acp.json`. Omit it to use defaults, or use this minim
 | `default_effort` | Thinking level, default `medium` |
 | `approved_models` | Optional allowlist of model IDs or provider IDs |
 | `exec_timeout_seconds` | Turn timeout, default 1200 seconds |
-| `grant_full_access` | Aside full access mode, default `true` |
+| `default_permission` | New-chat permission: `read-only`, `guard` or `full-access` |
+| `grant_full_access` | Legacy fallback: `true` means Full access, `false` means Guard; defaults to `true` |
 | `style`, `owner_name` | Bridge persona preferences |
 
 `ASIDE_ACP_CONFIG` chooses another config file, `ASIDE_ACP_CLI` selects the executable, `ASIDE_HOME` selects Aside's data directory, and `ASIDE_ACP_LOG_FILE` enables file diagnostics. Reload the plugin after changing daemon environment variables. Per-agent Paseo environment overrides are not forwarded.
+
+## Permission modes
+
+Paseo’s mode selector exposes Aside’s native **Read only**, **Guard** and **Full access** modes, with the same descriptions as Aside’s desktop selector. Changing a mode updates the original session through `aside.sessions.update({ permissionMode })`, including its runtime permission config. The bridge reads back the committed mode before reporting success. Failed changes report an error and keep the previous selection.
+
+Imports and reconnects read the native session’s permission mode. Older Paseo agents with the placeholder `Auto` retain that native mode. Explicit mode selections in Paseo are applied normally. The selected mode is checked against native state before each task. Changes made in Aside are read on reconnect; the plugin does not continuously subscribe to Aside’s desktop selector.
+
+For new chats, `default_permission` takes precedence over legacy `grant_full_access`. Existing defaults remain compatible. Aside CLI cannot create Read only chats directly: the bridge initializes with Guard using an acknowledgement-only prompt, then applies Read only through the native API before sending the first user task. If this update fails, the task is not sent.
+
+Aside’s own folder-access confirmations in Guard still use Aside’s confirmation UI. The bridge’s `[[APPROVAL]]` convention provides separate Paseo approvals for model-requested external actions; it does not replace native folder confirmations or override the selected mode.
 
 ## Behavior and limits
 
@@ -91,7 +102,7 @@ The bridge reads `~/.aside-acp.json`. Omit it to use defaults, or use this minim
 - Live events are read every 40 ms through the CLI’s hidden `--log-dump` option, inspected in CLI 1.26.1010.1739. Completed transcripts recover missing final text without repeating streamed output. Intermediate assistant commentary may appear before the final answer.
 - Per-turn raw events are stored in private temporary files and removed when the CLI exits.
 - `[[APPROVAL]]` requests appear in Paseo's approval UI. Questions appear as forms if the ACP client supports elicitation, otherwise as text.
-- Full access is enabled by default. Asking before external actions is a prompt-based convention, not an enforced permission boundary.
+- The legacy default remains Full access unless `default_permission` or `grant_full_access` selects another mode. Native permission restrictions are enforced by Aside. The additional model-requested external-action approval convention is prompt based.
 - Image/audio prompts and MCP servers are unsupported.
 - Prompts run through your local Aside account. The plugin reads Aside's model catalog, transcripts and live event logs; it does not copy browser credentials into Paseo. Logs may contain prompts and errors.
 
@@ -118,6 +129,7 @@ index.server.ts       Provider registration through runAcpProvider
 server/connector.ts   In-process ACP streams and cleanup
 server/history.ts     Replay supplement for Paseo 0.11.2
 server/sessions.ts    Native discovery, search and persistence IDs
+server/modes.ts       Legacy Auto mode compatibility
 test/                 Local replay and live integration tests
 paseo-plugin.json     Compatibility and Git installation build step
 ```

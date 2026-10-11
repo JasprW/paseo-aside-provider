@@ -1,5 +1,9 @@
 # Verification
 
+## 0.2.1 native permission modes
+
+Pins aside-acp 0.3.1, commit `19cac4381304667de8b96efa4014c92402b9e917`. Static type/syntax checks only. Aside CLI help, built-in Aside skill, desktop permission schemas/templates and local session metadata were inspected read-only. No automated tests, permission mutations, model turns or UI tests were run. Native switching, Read only initialization and confirmation UI remain for manual testing.
+
 ## 0.2.0 native history import
 
 Pins aside-acp 0.3.0, commit `42c0b44f74be394c19e030b4cac4823cc2b261c5`. Static type/syntax checks only; no automated tests, imports or model turns. Paseo 0.11.2 discovery/replay contracts and local Aside metadata/transcript layouts were inspected read-only. Import UI rendering and continuation remain for manual testing.

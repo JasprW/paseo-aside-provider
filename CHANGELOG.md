@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.1
+
+- Pin aside-acp 0.3.1 and expose native Read only, Guard and Full access modes.
+- Apply permission changes to the original Aside session and read back committed state.
+- Preserve native mode on import/resume and accept older placeholder Auto modes.
+- Add `default_permission` while retaining legacy `grant_full_access` behavior.
+
 ## 0.2.0
 
 - Use Aside’s official brand assets for plugin and provider icons; label the integration unofficial.
