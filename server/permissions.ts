@@ -1,1 +1,1 @@
-export { withAsidePermissions } from "aside-acp/provider-permissions";
+export { withAsidePermissions, createAsideQuestionRelay } from "aside-acp/provider-permissions";

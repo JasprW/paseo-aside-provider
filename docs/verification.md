@@ -1,5 +1,13 @@
 # Verification
 
+## 0.4.1 interactive approvals and questions
+
+The user confirmed the local patch passed testing on 2026-10-11 and authorized this release. Earlier manual exercises covered single-choice, multiple-choice/custom and free-text question forms and continuation. The final confirmation covers the reported Guard file-write approval failure; no exhaustive claim is made about every permanent grant, cancellation, external answer or reconnect path.
+
+Read-only inspection identified the cause: native `user/cli` sessions convert Guard's `ask` verdict to policy denial and omit question/action-confirmation tools. Aside daemon 1.26.1011.1545's supported `sessions.branch` API creates an interactive `user/branch` session and preserves transcript through the completed assistant reply, permissions/grants, model, runtime configuration, cwd and browser binding. The bridge migrates before the next task, retains the source, persists the binding and updates the watcher. Imported chats restore the persisted branch on reconnect.
+
+Complete streamed structured questions remain a compatibility fallback. Type/syntax/diff checks and local plugin reload passed before the user exercised the fix. No automated tests or model turns were run by the developer for this change. Release preparation repeats static checks and checks package contents.
+
 ## 0.4.0 interactive native questions
 
 Pins aside-acp 0.5.0, commit `79de984d0d154439710e994ba2dde82a8aa33c8d`.
