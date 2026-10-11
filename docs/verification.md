@@ -1,5 +1,13 @@
 # Verification
 
+## 0.4.0 interactive native questions
+
+Pins aside-acp 0.5.0, commit `79de984d0d154439710e994ba2dde82a8aa33c8d`.
+
+Question-form input/answer contracts were read from Paseo 0.11.2, and Aside's `ask-user-question`, `multiple`, ordered `answers` and ID-checked rejection contracts were inspected from the installed native daemon. Type/syntax/diff checks and hot-update status are checked for this release. No automated tests or model turns are run for this feature; actual question rendering and submitting/dismissing remain for user testing.
+
+Manual checks: ask Aside to call `ask_user_question` with one single choice, one multiple choice and a custom answer; verify the form appears while the task is paused and resumes the same task on submit. Also check multiple/duplicate headers, dismissal, an answer made in Aside, interrupt/reconnect and stale replies. Plain standalone ACP clients retain their existing fallback.
+
 ## 0.3.1 Electron authentication fix
 
 Pins aside-acp 0.4.1, commit `8516e1b282b4c09b6a3d90b9095a41485be07163`.
