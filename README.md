@@ -74,11 +74,13 @@ The bridge reads `~/.aside-acp.json`. Omit it to use defaults, or use this minim
 
 - Model and thinking controls update the same native Aside session. Browser context survives agent and plugin reloads.
 - Conversation text is saved in `~/.aside-acp/sessions` and replayed into Paseo after reconnecting.
-- Replies stream as assistant text. Individual browser tool calls and thinking details are not rendered.
+- Replies stream during generation from Aside CLI’s raw text events. Thinking appears in Paseo’s reasoning rows when the model exposes it, and is saved for replay. Individual browser tool calls are not rendered.
+- Live events are read every 40 ms through the CLI’s hidden `--log-dump` option, inspected in CLI 1.26.1010.1739. Completed transcripts recover missing final text without repeating streamed output. Intermediate assistant commentary may appear before the final answer.
+- Per-turn raw events are stored in private temporary files and removed when the CLI exits.
 - `[[APPROVAL]]` requests appear in Paseo's approval UI. Questions appear as forms if the ACP client supports elicitation, otherwise as text.
 - Full access is enabled by default. Asking before external actions is a prompt-based convention, not an enforced permission boundary.
 - Image/audio prompts and MCP servers are unsupported.
-- Prompts run through your local Aside account. The plugin reads Aside's model catalog and transcripts; it does not copy browser credentials into Paseo. Logs may contain prompts and errors.
+- Prompts run through your local Aside account. The plugin reads Aside's model catalog, transcripts and live event logs; it does not copy browser credentials into Paseo. Logs may contain prompts and errors.
 
 ## Development
 

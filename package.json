@@ -1,6 +1,6 @@
 {
   "name": "paseo-aside-provider",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Aside browser agent provider for Paseo, powered by aside-acp.",
   "type": "module",
   "engines": {
@@ -22,7 +22,7 @@
     "CONTRIBUTING.md"
   ],
   "dependencies": {
-    "aside-acp": "https://codeload.github.com/JasprW/aside-acp/tar.gz/fa41bc9b20150e1938944b85190156a8d1fdc272",
+    "aside-acp": "https://codeload.github.com/JasprW/aside-acp/tar.gz/4adde06fcda235ce4f96832b2b0ea2632fe5a535",
     "zod": "^4.4.3"
   },
   "devDependencies": {

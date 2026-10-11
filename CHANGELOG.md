@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1
+
+- Pin aside-acp 0.2.1 for real text and thinking streaming from Aside CLI events.
+- Replay reasoning alongside conversation messages.
+- Deduplicate final output and clean up private raw-event files after each CLI turn.
+
 ## 0.1.0
 
 - Register Aside as a native Paseo provider using the official ACP shim.

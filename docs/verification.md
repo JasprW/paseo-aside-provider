@@ -1,5 +1,11 @@
 # Verification
 
+## 0.1.1 streaming update
+
+Pins aside-acp 0.2.1, commit `4adde06fcda235ce4f96832b2b0ea2632fe5a535`. Static type/syntax checks only; no new agent turns or UI tests were run. The raw-event contract was inspected in installed Aside CLI 1.26.1010.1739. Assistant text and exposed thinking are now streamed; browser tool calls remain unrendered.
+
+## Earlier 0.1.0 checks
+
 Local verification on 2026-10-11 (Asia/Singapore), using Paseo 0.11.2 and Aside CLI 1.26.1010.1739 on macOS.
 
 | Check | Result |
