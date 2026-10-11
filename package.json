@@ -24,7 +24,7 @@
     "THIRD_PARTY_NOTICES.md"
   ],
   "dependencies": {
-    "aside-acp": "https://codeload.github.com/JasprW/aside-acp/tar.gz/f297d83401cf5b8bada432d0e5bd780756f562ee",
+    "aside-acp": "https://codeload.github.com/JasprW/aside-acp/tar.gz/e7ff56e903379c6ea14f308b2f68d4e65ef25225",
     "zod": "^4.4.3"
   },
   "devDependencies": {
