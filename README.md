@@ -74,6 +74,7 @@ The bridge reads `~/.aside-acp.json`. Omit it to use defaults, or use this minim
 
 - Model and thinking controls update the same native Aside session. Browser context survives agent and plugin reloads.
 - Conversation text is saved in `~/.aside-acp/sessions` and replayed into Paseo after reconnecting.
+- Upstream errors appear once with their specific reason and request ID when supplied. Content-filter rejections are not automatically retried.
 - Replies stream during generation from Aside CLI’s raw text events. Thinking appears in Paseo’s reasoning rows when the model exposes it, and is saved for replay. Individual browser tool calls are not rendered.
 - Live events are read every 40 ms through the CLI’s hidden `--log-dump` option, inspected in CLI 1.26.1010.1739. Completed transcripts recover missing final text without repeating streamed output. Intermediate assistant commentary may appear before the final answer.
 - Per-turn raw events are stored in private temporary files and removed when the CLI exits.

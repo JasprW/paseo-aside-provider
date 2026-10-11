@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2
+
+- Pin aside-acp 0.2.2 to display upstream failure reasons and request IDs.
+- Remove duplicate assistant error text and generic turn-failed messages.
+
 ## 0.1.1
 
 - Pin aside-acp 0.2.1 for real text and thinking streaming from Aside CLI events.

@@ -1,5 +1,9 @@
 # Verification
 
+## 0.1.2 error reporting
+
+Pins aside-acp 0.2.2, commit `3e5268b1082552d7788a7e645a30b4a1512aeb2d`. Static checks only; no new agent turns or UI tests. Existing user-run logs confirmed real streaming and an upstream content-filter rejection; this update improves error reporting without bypassing that rejection.
+
 ## 0.1.1 streaming update
 
 Pins aside-acp 0.2.1, commit `4adde06fcda235ce4f96832b2b0ea2632fe5a535`. Static type/syntax checks only; no new agent turns or UI tests were run. The raw-event contract was inspected in installed Aside CLI 1.26.1010.1739. Assistant text and exposed thinking are now streamed; browser tool calls remain unrendered.
