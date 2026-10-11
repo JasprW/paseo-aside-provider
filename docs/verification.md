@@ -1,5 +1,9 @@
 # Verification
 
+## 0.2.2 provider icon size
+
+The provider SVG viewBox is reduced from 40 to 32 units and centered on the original brand mark, increasing its rendered size by 25%. Static type and diff checks only; no automated tests or visual UI checks were run. Bridge dependency unchanged.
+
 ## 0.2.1 native permission modes
 
 Pins aside-acp 0.3.1, commit `19cac4381304667de8b96efa4014c92402b9e917`. Static type/syntax checks only. Aside CLI help, built-in Aside skill, desktop permission schemas/templates and local session metadata were inspected read-only. No automated tests, permission mutations, model turns or UI tests were run. Native switching, Read only initialization and confirmation UI remain for manual testing.

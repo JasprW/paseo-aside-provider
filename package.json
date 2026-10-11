@@ -1,6 +1,6 @@
 {
   "name": "paseo-aside-provider",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Unofficial Aside browser agent integration for Paseo, with streaming and native session import.",
   "type": "module",
   "engines": {

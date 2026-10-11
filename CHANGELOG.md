@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2
+
+- Reduce provider SVG padding and center the Aside mark, increasing its visible size by 25% to match neighboring provider icons.
+
 ## 0.2.1
 
 - Pin aside-acp 0.3.1 and expose native Read only, Guard and Full access modes.
