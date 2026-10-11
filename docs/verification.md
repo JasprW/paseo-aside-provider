@@ -1,5 +1,9 @@
 # Verification
 
+## 0.2.0 native history import
+
+Pins aside-acp 0.3.0, commit `42c0b44f74be394c19e030b4cac4823cc2b261c5`. Static type/syntax checks only; no automated tests, imports or model turns. Paseo 0.11.2 discovery/replay contracts and local Aside metadata/transcript layouts were inspected read-only. Import UI rendering and continuation remain for manual testing.
+
 ## 0.1.2 error reporting
 
 Pins aside-acp 0.2.2, commit `3e5268b1082552d7788a7e645a30b4a1512aeb2d`. Static checks only; no new agent turns or UI tests. Existing user-run logs confirmed real streaming and an upstream content-filter rejection; this update improves error reporting without bypassing that rejection.

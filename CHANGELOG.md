@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.0
+
+- Use Aside’s official brand assets for plugin and provider icons; label the integration unofficial.
+
+- Pin aside-acp 0.3.0 for native Aside history in Import Sessions.
+- Search/filter before limiting and reuse existing persistence IDs for deduplication.
+- Bind to original native sessions and replay user/assistant/reasoning text without a bootstrap turn.
+- Read native metadata with the macOS SQLite CLI in read-only mode; keep account boundaries and reject unavailable sessions.
+
 ## 0.1.2
 
 - Pin aside-acp 0.2.2 to display upstream failure reasons and request IDs.

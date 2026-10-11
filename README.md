@@ -1,4 +1,8 @@
-# Aside provider for Paseo
+# Aside provider for Paseo (unofficial)
+
+<img src="icon.png" width="64" alt="Aside logo">
+
+Unofficial community integration. Not affiliated with or endorsed by Aside.
 
 [![Check](https://github.com/JasprW/paseo-aside-provider/actions/workflows/ci.yml/badge.svg)](https://github.com/JasprW/paseo-aside-provider/actions/workflows/ci.yml)
 
@@ -44,6 +48,14 @@ paseo plugin remove paseo-aside-provider
 Only one plugin should register the `aside` provider. Remove the old `aside-acp` plugin before installing this one. Existing `~/.aside-acp.json` settings and `~/.aside-acp/sessions` mappings are reused.
 
 If you used a legacy `agents.providers.aside` entry with `extends: "acp"`, back up the daemon's config, remove that specific entry, and run `paseo reload`. A custom provider entry overrides plugin registration. Create new Paseo agents after migrating from that legacy provider format; its old Aside session files are retained.
+
+## Import Aside history
+
+Open **Import Sessions**, filter to **Aside**, and select a native chat. If it belongs to another directory, choose **Show all directories**. Paseo uses the native chat’s stored working directory for placement and resumes the original Aside session, keeping its browser context. Model and thinking choices follow Paseo’s composer controls.
+
+Discovery reads the selected account’s `state.db` through macOS’s `/usr/bin/sqlite3` in read-only mode. Visible, non-archived root chats are listed by last activity; incognito, ephemeral and child sessions are excluded. Search and directory filters apply before limiting results. Existing bridge persistence IDs are reused so Paseo can exclude chats already imported.
+
+User, assistant and exposed reasoning text is copied from the native transcript for replay. Browser tool results and attachments are omitted. The initial transcript is captured when first imported; subsequent bridge messages are appended. Listing and import do not start a model turn or write to Aside’s database. Deleted/missing chats and unavailable transcripts produce an explicit error.
 
 ## Settings
 
@@ -105,6 +117,7 @@ See [verification](docs/verification.md), [contributing](CONTRIBUTING.md), and [
 index.server.ts       Provider registration through runAcpProvider
 server/connector.ts   In-process ACP streams and cleanup
 server/history.ts     Replay supplement for Paseo 0.11.2
+server/sessions.ts    Native discovery, search and persistence IDs
 test/                 Local replay and live integration tests
 paseo-plugin.json     Compatibility and Git installation build step
 ```
@@ -114,3 +127,5 @@ The bridge implementation belongs to `aside-acp`; this repository pins its revis
 ## License
 
 MIT for this plugin. The bridge and its dependencies retain their own terms. See [LICENSE](LICENSE).
+
+Aside branding identifies the integration and is not covered by this repository’s code license. See [third-party notices](THIRD_PARTY_NOTICES.md).
